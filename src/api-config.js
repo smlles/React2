@@ -22,7 +22,9 @@ const hostname = window && window.location && window.location.hostname;
 
 //http://loaclhost:10000
 //hostname -> localhost
-if(hostname == "localhost"){
+if(hostname == "localhost"){ //리액트랑 스프링은 
+    // 집이 서로 다르니까 
+    //그 집을 가기 위한 주소를 알려줘야한다.
     backendHost = "http://localhost:10000";
 }
 

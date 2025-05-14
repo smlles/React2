@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     //조회
     call("/todo","GET")
-      .then(result => {
+      .then(result => { // 해서 결과값을 받았으면 (그래서 result)
         setItems(result);
         setLoading(false)})
   },[]);

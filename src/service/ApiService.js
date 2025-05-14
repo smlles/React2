@@ -12,10 +12,10 @@ import { API_BASE_URL } from '../api-config'
 //팩토리 패턴 : 여러 곳에서 api의 호출이 필요 할 때,
 //매번 같은 설정을 반복하지 않고 한번에 설정을 정의하는 방식
     const apiClient = axios.create({
-        baseURL : API_BASE_URL,
-        headers : {
+        baseURL : API_BASE_URL, //스프링 집 주소
+        headers : { //요청헤더 : 내가 보내고 싶은 요청
             'Content-Type':'application/json'
-        }
+        }   //보낼 타입은 JSON이야 
     })
 
 //2. 요청 인터셉터로 토큰 자동 첨부
@@ -25,9 +25,9 @@ import { API_BASE_URL } from '../api-config'
 //역할이 서버로 전송되기 전에 호출될 콜백 함수 등록
 apiClient.interceptors.request.use(config => {
     const token = localStorage.getItem("ACCESS_TOKEN");
-    if(token){
+    if(token){ //근데 거기에 조건(권한)이 필요하다면
         config.headers.Authorization=`Bearer ${token}`;
-    }
+    }   //토큰을 추가해줘 
     return config;
 })
 
@@ -52,9 +52,6 @@ apiClient.interceptors.response.use(response=>response,
     })
 
 export function call(api,method,request){
-
-   
-
     //앞서 설정한 options객체를 사용하여 axios로 HTTP요청을 보낸다.
     return apiClient({
         url : api,

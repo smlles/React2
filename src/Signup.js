@@ -7,12 +7,12 @@ function Signup(){
   const handleSubmit =(e)=>{
       e.preventDefault();
       //form태그에 저장된 데이터 가져오기
-      const data = new FormData(e.target);
-      const username = data.get("username");
-      const password = data.get("password");
+      const data = new FormData(e.target); 
+      const username = data.get("username"); //그 중 이름 가져오기
+      const password = data.get("password"); //그 중 비번 가져오기
       
       signup({username:username,password:password})
-        .then((response)=>{
+        .then((response)=>{ //성공하면 then ,실패하면 catch
           //계정 생성 성공시, login 페이지로 리다이렉트
           window.location.href='/login';
         })
