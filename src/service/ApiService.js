@@ -64,6 +64,7 @@ export function call(api,method,request){
 //userDTO 매개변수에 담긴 내용
 //{username:username, password:password}
 export function signin(userDTO){
+    
     return call("/auth/signin","POST",userDTO)
             .then(response => {
                 console.log("response : " + response);
@@ -91,5 +92,6 @@ export function signout(){
 //계정 생성
 
 export function signup(userDTO){
+    console.log("만들어줘 userDTO",userDTO);
     return call("/auth/signup","POST",userDTO)
 }

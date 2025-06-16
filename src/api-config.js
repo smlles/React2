@@ -25,7 +25,9 @@ const hostname = window && window.location && window.location.hostname;
 if(hostname == "localhost"){ //리액트랑 스프링은 
     // 집이 서로 다르니까 
     //그 집을 가기 위한 주소를 알려줘야한다.
-    backendHost = "http://localhost:10000";
+    backendHost = "http://localhost:5000";
+}else{
+    backendHost ="http://api.springbootjyh.shop"
 }
 
 export const API_BASE_URL = `${backendHost}`
