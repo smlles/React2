@@ -27,7 +27,7 @@ const AppRouter = () => {
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={ token && token != 'null' ? <App /> : <Navigate to='login' replace />} />
+                    <Route path="/" element={ token && token !== 'null' ? <App /> : <Navigate to='login' replace />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />}/>
                 </Routes>

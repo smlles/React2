@@ -33,7 +33,7 @@ let Todo = (props) => {
     }
 
     const turnOnReadOnly = (e) => {
-        if(e.key == 'Enter' && readOnly === false){
+        if(e.key === 'Enter' && readOnly === false){
             setReadOnly(true);//readOnly true가 읽기만 허용
             editItem(item);
         }
