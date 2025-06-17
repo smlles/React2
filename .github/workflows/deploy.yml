@@ -19,6 +19,9 @@ jobs:
    - name: Build with npm
      run: npm run build
 
+   - name: Remove old folder react-eb-final
+     run : rm -rf react-eb-final/build
+
    - name: Move build folder into react-eb-final
      run: mv build react-eb-final
 
