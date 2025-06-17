@@ -13,5 +13,8 @@ jobs:
      with: 
       node-version: '18'
 
+   - name: Dependency
+     run : npm install
+
    - name: Build with npm
      run: npm run build
