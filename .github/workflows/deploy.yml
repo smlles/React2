@@ -28,10 +28,10 @@ jobs:
 # 빌드된 정적 파일을 옮기기
    - name: Move build folder into react-eb-final
      run: mv build react-eb-final
-
+# react-eb-final폴더를 Zip으로 압축
    - name: Zip react-eb-final folder
      run: zip -r react-eb-final.zip react-eb-final 
-
+# eb에 배포하기
    - name: Beanstalk Deploy
      uses: einaregilsson/beanstalk-deploy@v20
      with:
@@ -39,6 +39,6 @@ jobs:
       aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
       application_name: TodoApplication-froentend-env
       environment_name: TodoApplication-froentend-env-env
-      version_label: react-${{ github.sha }}
+      version_label: react-eb-final-${{ github.run_number }} #github.run_number : github에서 제공하는 자동으로 증가하는 고유 숫자
       region: ap-northeast-2
       deployment_package: react-eb-final.zip
