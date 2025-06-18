@@ -27,7 +27,7 @@ if(hostname === "localhost"){ //리액트랑 스프링은
     //그 집을 가기 위한 주소를 알려줘야한다.
     backendHost = "http://localhost:5000";
 }else{
-    backendHost ="https://api.springbootjyh.shop"
+    backendHost ="http://api.springbootjyh.shop"
 }
 
 export const API_BASE_URL = `${backendHost}`

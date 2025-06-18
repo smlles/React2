@@ -1,27 +1,31 @@
 name: React App Deploy to EB
-
+# 이 스크립ㄹ트가 동작하는 시점을 정하기
 on:
  push:
   branches: [main]
-
+# 어떤 작업을 할까?
 jobs:
- build:
+ deploy: #job의 이름 : 임의 지정 가능
+#  어디서 할까? (ubuntu)에서
   runs-on: ubuntu-latest
   steps:
+  #checkout -> 깃허브 레포지에 올린 코드를실행 환경에 다운로드
+  #github의 소스코드를 현재 실행중인 ubuntu에 복사하는 작업
    - uses: actions/checkout@v3
+  #  Node.js로 환경 설정 -> npm / npx 등 사용해야 함
    - uses: actions/setup-node@v3
      with: 
       node-version: '18'
-
-   - name: Dependency
+# 의존성 설치
+   - name: Install frontend Dependency
      run : npm install
-
+# 빌드하기
    - name: Build with npm
      run: npm run build
-
+# react-eb-final 폴더에 이미 build가 있으면 삭제하자
    - name: Remove old folder react-eb-final
-     run : rm -rf react-eb-final/build
-
+     run: rm -rf react-eb-final/build
+# 빌드된 정적 파일을 옮기기
    - name: Move build folder into react-eb-final
      run: mv build react-eb-final
 
