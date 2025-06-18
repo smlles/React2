@@ -30,7 +30,7 @@ jobs:
      run: mv build react-eb-final
 # react-eb-final폴더를 Zip으로 압축
    - name: Zip react-eb-final folder
-     run: cd react-eb-final && zip -r react-eb-final.zip react-eb-final 
+     run: cd react-eb-final && zip -r ../react-eb-final.zip .
 # eb에 배포하기
    - name: Beanstalk Deploy
      uses: einaregilsson/beanstalk-deploy@v20
