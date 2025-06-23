@@ -95,3 +95,8 @@ export function signup(userDTO){
     console.log("만들어줘 userDTO",userDTO);
     return call("/auth/signup","POST",userDTO)
 }
+
+//소셜 로그인
+export function socialLogin(provider){
+    window.location.href=API_BASE_URL + "/auth/authorize/" + provider;
+}

@@ -29,11 +29,15 @@ jobs:
    - name: Move build folder into react-eb-final
      run: mv build react-eb-final
 # react-eb-final폴더를 Zip으로 압축
+# 혹은 | cd react-eb-final zip -r ../react-eb-final.zip ./*
+# 현재 폴더 안의 모든 파일과 폴더를 상위 디렉토리에 있는 react-eb-final.zip로 압축
    - name: Zip react-eb-final folder
      run: cd react-eb-final && zip -r ../react-eb-final.zip .
 # eb에 배포하기
    - name: Beanstalk Deploy
      uses: einaregilsson/beanstalk-deploy@v20
+    #  einaregilsson/beanstalk-deploy@v20:  eb에 어플리케이션을 자동배포하게해주는
+    # github 액션
      with:
       aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID}}
       aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
